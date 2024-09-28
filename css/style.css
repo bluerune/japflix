@@ -17,7 +17,7 @@
 
 main {
     min-height: calc(100vh - 100px);
-  }
+}
 
 .checked{
     color: orange;
@@ -25,4 +25,29 @@ main {
 
 .offcanvas-top{
     height: fit-content;
+}
+
+li {
+    list-style-type: none
+}
+
+.peliculaItem {
+    color: azure;
+    background-color: rgb(47, 49, 53);
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+.elementTitle {
+    font-size: large;
+    font-weight: bold;
+}
+
+.elementTagline {
+    font-style: italic;
+}
+
+.elementStars {
+    float: right;
 }

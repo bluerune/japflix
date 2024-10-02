@@ -51,3 +51,8 @@ li {
 .elementStars {
     float: right;
 }
+
+.genres {
+    float: left;
+    margin: 1rem;
+}

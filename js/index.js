@@ -37,7 +37,7 @@ btnBuscar.addEventListener("click", () =>{
     let star = '<span class="fa fa-star checked"></span>'
 
     arrayBuscar.forEach(element => {
-        container.innerHTML += `<li class="peliculaItem">
+        container.innerHTML += `<li class="peliculaItem" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" id="${element.id}" onclick=offCanvas(${element.id}) {index.js};>
         <span class="elementStars">
         ${star.repeat(element.vote_average)}
         </span>
@@ -49,5 +49,22 @@ btnBuscar.addEventListener("click", () =>{
 })
 
 //Cuando el usuario pulse en alguna de las películas mostradas, se deberá desplegar un contenedor superior con la siguiente información de dicha película: title, overview y lista de genres.
+
+function offCanvas(peliculaId) {
+    
+
+    peliculaTitulo = document.getElementById("offcanvasTopLabel");
+    peliculaDesc = document.getElementById("offcanvas-body");
+
+    pelicula = movies.filter(element => element.id === peliculaId);
+
+    peliculaTitulo.innerHTML = `${pelicula[0].title}`;
+    peliculaDesc.innerHTML = `<p>${pelicula[0].overview}</p>`;
+
+    pelicula[0].genres.forEach(element =>{
+        peliculaDesc.innerHTML += `<p class="genres">${element.name}</p>`
+    });
+    console.log(pelicula);
+}
 
 //Añadir en lo anterior un botón con un desplegable que contenga el año de lanzamiento (sin el mes ni el día), la duración del largometraje, el presupuesto con el que contó y las ganancias obtenidas

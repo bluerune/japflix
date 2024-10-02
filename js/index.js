@@ -57,14 +57,27 @@ function offCanvas(peliculaId) {
     peliculaDesc = document.getElementById("offcanvas-body");
 
     pelicula = movies.filter(element => element.id === peliculaId);
+ console.log(pelicula);
+    //peliculaAnio = pelicula[0].release_date.getFullYear();
 
     peliculaTitulo.innerHTML = `${pelicula[0].title}`;
-    peliculaDesc.innerHTML = `<p>${pelicula[0].overview}</p>`;
+    peliculaDesc.innerHTML = `<p>${pelicula[0].overview}</p>
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="botonMas">
+    Más
+  </button>
+  <ul class="dropdown-menu">
+    <li><p class="dropdown-item">Duración: ${pelicula[0].runtime} minutos</p></li>
+    <li><p class="dropdown-item">Lanzamiento: ${pelicula[0].release_date.split('-')[0]}</p></li>
+    <li><p class="dropdown-item">Recaudado: $${pelicula[0].revenue}</p></li>
+  </ul>
+</div>
+    `;
 
     pelicula[0].genres.forEach(element =>{
         peliculaDesc.innerHTML += `<p class="genres">${element.name}</p>`
     });
-    console.log(pelicula);
+   
 }
 
 //Añadir en lo anterior un botón con un desplegable que contenga el año de lanzamiento (sin el mes ni el día), la duración del largometraje, el presupuesto con el que contó y las ganancias obtenidas

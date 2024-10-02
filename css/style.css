@@ -56,3 +56,13 @@ li {
     float: left;
     margin: 1rem;
 }
+
+#botonMas {
+    float: right;
+}
+
+#offcanvasTop {
+    overflow: hidden;
+}
+
+
